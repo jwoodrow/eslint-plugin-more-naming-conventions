@@ -9,7 +9,10 @@ module.exports = function(context)
         return;
 
       const source_code = context.getSourceCode();
-      const variable_name = source_code.getText(node);
+      var variable_name = source_code.getText(node);
+
+      if (variable_name[0] === '$')
+        variable_name = variable_name.slice(1);
       if (!new RegExp(`${common.snake_case_regex}|${common.upper_camel_case_regex}`, `g`)
         .test(variable_name))
       {
