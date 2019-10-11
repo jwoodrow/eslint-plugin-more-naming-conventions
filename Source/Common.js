@@ -4,9 +4,9 @@ function FormatRegexCaptureGroup(regex_string)
 }
 
 const CAMEL_CASE_COMMON_REGEX = `[A-Z]|[a-z]|[0-9]`;
-const lower_camel_case_regex = FormatRegexCaptureGroup(`[a-z](${CAMEL_CASE_COMMON_REGEX})*`);
+const lower_camel_case_regex = FormatRegexCaptureGroup(`$?[a-z](${CAMEL_CASE_COMMON_REGEX})*`);
 // Underscores are allowed, for CONSTANT_VARIABLE_NAME.
-const upper_camel_case_regex = FormatRegexCaptureGroup(`[A-Z](${CAMEL_CASE_COMMON_REGEX}|_)*`);
+const upper_camel_case_regex = FormatRegexCaptureGroup(`$?[A-Z](${CAMEL_CASE_COMMON_REGEX}|_)*`);
 
 const snake_case_regex = FormatRegexCaptureGroup(`[a-z]([a-z]|[0-9]|_)*`);
 
